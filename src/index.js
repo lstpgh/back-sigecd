@@ -6,12 +6,12 @@ const path = require('path')
 require('dotenv').config()
 const app = express()
 
-//const authRoutes = require('./routes/auth.routes')
+const authRoutes = require('./routes/auth.routes')
 
 // configura puerto y base de datos
 app.set('port', process.env.PORT || 3000)
 mongoose.connect(process.env.DB_STRING)
-.then(db => console.log('Connected to Mongo'))
+.then(() => console.log('Connected to Mongo'))
 .catch(err => console.log(err))
 
 //middlewares
@@ -22,7 +22,7 @@ app.use(express.urlencoded({
 }))
 
 //rutas
-//app.use('/auth', authRoutes)
+app.use('/auth', authRoutes)
 
 // inicia el servidor
 app.listen(app.get('port'), ()=>{

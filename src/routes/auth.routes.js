@@ -7,12 +7,10 @@ router.get('/profile', authController.profile)
 
 router.post('/register',[
     check('name', 'Nombre no válido, mínimo 2 caracteres, máximo 50 caracteres').isLength({min: 2, max: 50}),
-    check('role', 'Rol no válido'),
+    check('role', 'Rol no válido').isNumeric(),
     check('email', 'Email no válido').isEmail(),
     check('password', 'Contraseña debil').isStrongPassword()
-],
-authController.register
-)
+    ], authController.register)
 
 router.post('/login', authController.login)
 
