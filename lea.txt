@@ -1,0 +1,5 @@
+backend base express y mongoose
+autenticación (login y registro)
+validación de datos ingresados
+roles de usuarios
+documentación del código
